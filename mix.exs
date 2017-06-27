@@ -21,7 +21,9 @@ defmodule Asinine.Mixfile do
   end
 
   defp deps do
-    []
+    [
+      {:ex_doc, ">= 0.0.0", only: :dev}
+    ]
   end
 
   defp description do
@@ -34,7 +36,7 @@ defmodule Asinine.Mixfile do
 
   defp package do
     [
-      name: :postgrex,
+      name: :asinine,
       files: ["lib", "mix.exs", "README*"],
       maintainers: ["James Wang"],
       licenses: ["MIT"],
