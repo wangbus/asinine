@@ -2,32 +2,43 @@ defmodule Asinine.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :asinine,
-     version: "0.1.0",
-     elixir: "~> 1.4",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :asinine,
+      version: "0.1.0",
+      elixir: "~> 1.4",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      description: description(),
+      package: package(),
+      deps: deps(),
+      name: "Asinine",
+      source_url: "https://github.com/wangbus/asinine"
+    ]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
   def application do
-    # Specify extra applications you'll use from Erlang/Elixir
     [extra_applications: [:logger]]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:my_dep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:my_dep, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
   defp deps do
     []
+  end
+
+  defp description do
+    """
+    _The Amazon Standard Identification Number (ASIN) is a 10-character alphanumeric unique identifier assigned by Amazon.com and its partners for product identification within the Amazon organization._
+
+    Asinine is an ASIN parser for Amazon product URLs.
+    """
+  end
+
+  defp package do
+    [
+      name: :postgrex,
+      files: ["lib", "mix.exs", "README*"],
+      maintainers: ["James Wang"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/wangbus/asinine"}
+    ]
   end
 end
